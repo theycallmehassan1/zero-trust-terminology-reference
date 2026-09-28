@@ -39,7 +39,7 @@
       key: 'prices',
       label: 'Package Prices',
       keywords: ['price', 'prices', 'cost', 'how much', 'fee', 'fees', 'rate'],
-      answer: 'Prices vary by sharing type, dates and Shifting/Non-Shifting option. Hajj packages range from $10,395 to $18,495, Umrah from $1,399. Get an exact quote via our <a href="quote.html">Free Quotation Form</a>.',
+      answer: 'Prices vary by sharing type, dates and Shifting/Non-Shifting option. Hajj packages range from $10,395 to $18,995, Umrah from $1,399. Get an exact quote via our <a href="quote.html">Free Quotation Form</a>.',
       related: ['payment', 'booking', 'hajj-packages', 'umrah-packages']
     },
     {
