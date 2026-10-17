@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Umrah Agency CRM</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="logo">🕋</div>
+      <div>
+        <div class="brand-name" id="brandName">Umrah CRM</div>
+        <div class="brand-sub">Agency Management</div>
+      </div>
+    </div>
+    <nav id="nav">
+      <a href="#/dashboard" data-view="dashboard">📊 Dashboard</a>
+      <a href="#/leads" data-view="leads">🎯 Leads / Inquiries</a>
+      <a href="#/customers" data-view="customers">👥 Pilgrims</a>
+      <a href="#/packages" data-view="packages">📦 Packages</a>
+      <a href="#/bookings" data-view="bookings">🧾 Bookings</a>
+      <a href="#/payments" data-view="payments">💰 Payments</a>
+      <a href="#/visas" data-view="visas">🛂 Visa Tracker</a>
+      <a href="#/agents" data-view="agents">🤝 Sub-Agents</a>
+      <a href="#/expenses" data-view="expenses">📉 Expenses</a>
+      <a href="#/reports" data-view="reports">📈 Reports</a>
+      <a href="#/settings" data-view="settings">⚙️ Settings</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <h1 id="viewTitle">Dashboard</h1>
+      <div class="search-wrap">
+        <input id="globalSearch" type="search" placeholder="Search pilgrim, phone, passport, booking ref…" autocomplete="off">
+        <div id="searchResults" class="search-results"></div>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌓</button>
+    </header>
+    <main id="view" class="view"></main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="modalTitle"></h2>
+        <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
