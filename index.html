@@ -362,7 +362,7 @@ footer .logo{color:#fff;margin-bottom:12px}
     <div class="faq-list">
       <details open><summary>How do I book a taxi?</summary><p>Tap any “Book Now” button on this page. WhatsApp opens with a pre-filled message to +966 50 765 1503 — just add your trip details and send.</p></details>
       <details><summary>Do you pick up from Jeddah Airport?</summary><p>Yes. Share your flight number and arrival time and your driver will meet you at arrivals, including late-night flights.</p></details>
-      <details><summary>Which vehicle should I choose?</summary><p>Toyota Camry for up to 4 passengers, GMC Yukon XL or Hyundai Staria for families up to 7, Toyota Hiace for groups up to 12, and Toyota Coaster for larger groups up to 22.</p></details>
+      <details><summary>Which vehicle should I choose?</summary><p>Toyota Camry for up to 3 passengers, GMC Yukon XL for up to 6, Hyundai Staria for families up to 7, Toyota Hiace for groups up to 10, and Toyota Coaster for larger groups up to 22.</p></details>
       <details><summary>Do you offer Ziyarat tours?</summary><p>Yes — guided Ziyarat of the historic sites in Makkah and Madinah, with flexible timing for your group.</p></details>
       <details><summary>How do I pay?</summary><p>The price is agreed on WhatsApp before your trip. Payment details are confirmed with your booking.</p></details>
     </div>
@@ -407,10 +407,10 @@ const carMsg = c => `Assalam o Alaikum BookUmrahTaxi,\nI want to book the ${c.na
 const routeMsg = r => `Assalam o Alaikum BookUmrahTaxi,\nI want to book a taxi from ${r.from} to ${r.to}.\n\nDate & Time: \nPassengers: \nVehicle: `;
 
 const CARS = [
-  {id:'yukon',  name:'GMC Yukon XL',    type:'Luxury SUV',     img:'images/gmc-yukon-xl.webp',   pax:7,  bags:6},
-  {id:'camry',  name:'Toyota Camry',    type:'Sedan',          img:'images/camry.webp',          pax:4,  bags:3},
+  {id:'yukon',  name:'GMC Yukon XL',    type:'Luxury SUV',     img:'images/gmc-yukon-xl.webp',   pax:6,  bags:8},
+  {id:'camry',  name:'Toyota Camry',    type:'Sedan',          img:'images/camry.webp',          pax:3,  bags:3},
   {id:'staria', name:'Hyundai Staria',  type:'Premium Van',    img:'images/hyundai-staria.webp', pax:7,  bags:5},
-  {id:'hiace',  name:'Toyota Hiace',    type:'Family Van',     img:'images/toyota-hiace.webp',   pax:12, bags:10},
+  {id:'hiace',  name:'Toyota Hiace',    type:'Family Van',     img:'images/toyota-hiace.webp',   pax:10, bags:14},
   {id:'coaster',name:'Toyota Coaster',  type:'Group Coaster',  img:'images/toyota-coaster.webp', pax:22, bags:20},
 ];
 
