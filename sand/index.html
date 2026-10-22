@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookUmrahTaxi – Umrah Rides in Makkah, Madinah &amp; Jeddah</title>
+<meta name="description" content="BookUmrahTaxi – Umrah taxi service. Jeddah Airport to Makkah, Makkah to Madinah, Ziyarat tours. Camry, GMC Yukon XL, Hyundai Staria, Toyota Hiace and Coaster. Book on WhatsApp 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/gmc-yukon-xl.webp">
+<style>
+:root{
+  --sand:#f2ebe0; --cream:#fbf7f0; --dune:#e6dccb; --ink:#17130e; --ink-2:#3d362d; --muted:#7a6f61;
+  --clay:#e0562a; --clay-dark:#c2441c; --sun:#f3b04a; --night:#1d1a24;
+  --wa:#25d366; --line:rgba(23,19,14,.12);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --serif:"Instrument Serif",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Bricolage Grotesque",system-ui,sans-serif;background:var(--sand);color:var(--ink);line-height:1.55;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;opacity:.35;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.38 0 0 0 0 0.3 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1320px,100% - 32px);margin-inline:auto}
+em,.serif{font-family:var(--serif);font-style:italic;font-weight:400}
+.wa-ico{width:20px;height:20px;flex:none}
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:8px 8px 8px 24px;border-radius:999px;background:var(--ink);color:var(--cream);font-weight:600;font-size:15px;border:0;cursor:pointer;font-family:inherit;transition:background .3s,transform .3s var(--ease)}
+.btn .knob{width:40px;height:40px;border-radius:50%;background:var(--clay);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.btn:hover{background:var(--clay)}
+.btn:hover .knob{background:var(--ink);transform:rotate(-45deg)}
+.btn.light{background:var(--cream);color:var(--ink)}
+.btn.light:hover{background:var(--clay);color:#fff}
+.btn.wa .knob{background:var(--wa)}
+
+/* Nav */
+.nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:rgba(251,247,240,.75);backdrop-filter:blur(14px);border:1px solid var(--line);box-shadow:0 10px 30px rgba(23,19,14,.08);transition:transform .5s var(--ease)}
+.nav.hide{transform:translate(-50%,-120%)}
+.brand{display:flex;align-items:center;gap:8px;padding:0 14px 0 6px;font-weight:800;font-size:17px;letter-spacing:-.4px;white-space:nowrap}
+.brand .mk{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--sun);display:grid;place-items:center}
+.brand i{font-family:var(--serif);font-weight:400;color:var(--clay);font-size:19px}
+.nav nav{display:flex}
+.nav nav a{padding:9px 14px;border-radius:999px;font-size:14px;font-weight:500;color:var(--ink-2);transition:background .25s,color .25s}
+.nav nav a:hover{background:var(--dune);color:var(--ink)}
+.nav .cta{display:flex;align-items:center;gap:8px;background:var(--clay);color:#fff;padding:9px 16px;border-radius:999px;font-weight:600;font-size:14px;white-space:nowrap;transition:background .25s}
+.nav .cta:hover{background:var(--ink)}
+@media (max-width:860px){.nav nav{display:none}.nav{left:16px;right:16px;transform:none;justify-content:space-between}.nav.hide{transform:translateY(-130%)}}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;padding:110px 0 40px;display:flex;flex-direction:column;overflow:hidden}
+.hero .meta{display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:500;flex-wrap:wrap}
+.hero .meta b{color:var(--ink);font-weight:600}
+.live{display:inline-flex;align-items:center;gap:8px}
+.live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:live 1.8s infinite}
+@keyframes live{to{box-shadow:0 0 0 10px rgba(37,211,102,0)}}
+.title{position:relative;margin-top:3vh;flex:1;display:flex;flex-direction:column;justify-content:center}
+.title h1{font-size:clamp(64px,13.5vw,210px);line-height:.86;font-weight:800;letter-spacing:-.055em;text-transform:uppercase;position:relative}
+.title h1 .ln{display:block;overflow:hidden;position:relative;z-index:1}
+.title h1 .ln.r{z-index:3}
+.title h1 .ln span{display:inline-block;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards}
+.title h1 .ln:nth-child(2) span{animation-delay:.12s}
+.title h1 .ln:nth-child(3) span{animation-delay:.24s}
+.title h1 .r{text-align:right}
+.title h1 em{text-transform:none;font-size:1.05em;letter-spacing:-.02em;color:var(--clay)}
+@keyframes rise{to{transform:none}}
+.sun{position:absolute;right:9%;top:50%;width:min(36vw,520px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ffd58a,var(--sun) 45%,var(--clay) 100%);transform:translateY(-50%) scale(0);animation:sunUp 1.4s .3s var(--ease) forwards;z-index:0}
+.sun::after{content:"";position:absolute;inset:-14%;border-radius:50%;border:1px dashed rgba(224,86,42,.45);animation:spin 40s linear infinite}
+@keyframes sunUp{to{transform:translateY(-50%) scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-car{position:absolute;right:-1%;top:-9%;width:min(54vw,760px);aspect-ratio:3/2;z-index:2;pointer-events:none}
+.hero-car img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;clip-path:inset(0 0 0 100%);filter:drop-shadow(0 30px 30px rgba(23,19,14,.25))}
+.hero-car img.on{animation:wipeIn 1.1s var(--ease) forwards}
+.hero-car img.off{clip-path:inset(0 0 0 0);animation:wipeOut .8s var(--ease) forwards}
+@keyframes wipeIn{from{clip-path:inset(0 0 0 100%);transform:translateX(8%)}to{clip-path:inset(0 0 0 0);transform:none}}
+@keyframes wipeOut{to{clip-path:inset(0 100% 0 0);transform:translateX(-8%)}}
+
+.hero-foot{position:relative;z-index:3;display:grid;grid-template-columns:1.1fr 1.3fr auto;gap:32px;align-items:end;margin-top:28px}
+.hero-foot p{font-size:17px;color:var(--ink-2);max-width:380px;margin-bottom:20px}
+.index{list-style:none;border-top:1px solid var(--line)}
+.index li{border-bottom:1px solid var(--line)}
+.index button{width:100%;display:grid;grid-template-columns:40px 1fr auto;align-items:center;gap:10px;padding:10px 4px;background:none;border:0;cursor:pointer;font:inherit;text-align:left;color:var(--muted);position:relative;overflow:hidden;transition:color .3s}
+.index button::before{content:"";position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .45s var(--ease);z-index:-1}
+.index button:hover{color:var(--ink)}
+.index button.on{color:var(--cream)}
+.index button.on::before{transform:scaleY(1)}
+.index .n{font-family:var(--serif);font-style:italic;font-size:18px;padding-left:8px}
+.index .nm{font-weight:600;font-size:16px}
+.index .sp{font-size:13px;padding-right:8px}
+.index button.on .sp{color:var(--sun)}
+.badge{position:relative;width:150px;height:150px;display:grid;place-items:center;border-radius:50%}
+.badge svg.txt{position:absolute;inset:0;animation:spin 14s linear infinite}
+.badge:hover svg.txt{animation-duration:4s}
+.badge .core{width:78px;height:78px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;transition:transform .4s var(--ease)}
+.badge:hover .core{transform:scale(1.1)}
+.badge .core svg{width:34px;height:34px}
+@media (max-width:1000px){.hero-foot{grid-template-columns:1fr auto}.index{display:none}}
+@media (max-width:860px){
+  .hero{min-height:0;padding-top:100px}
+  .sun,.hero-car{display:none}
+  .title{margin:40px 0 10px}
+  .title h1 .r{text-align:left}
+  .hero-foot{grid-template-columns:1fr;gap:20px}
+  .badge{display:none}
+  .hero .meta span:nth-child(2){display:none}
+}
+
+/* Marquee */
+.bands{overflow:hidden;padding:30px 0 40px}
+.band{background:var(--ink);color:var(--cream);transform:rotate(-2deg);margin:0 -40px;padding:18px 0;overflow:hidden;white-space:nowrap;position:relative;z-index:4}
+.band.alt{background:var(--clay);transform:rotate(1.5deg);margin-top:-58px}
+.band .tr{display:inline-flex;animation:mq 30s linear infinite}
+.band.alt .tr{animation-direction:reverse;animation-duration:36s}
+.band span{font-size:clamp(28px,4vw,54px);font-weight:800;text-transform:uppercase;letter-spacing:-.03em;padding:0 28px;display:inline-flex;align-items:center;gap:56px}
+.band span::after{content:"✦";color:var(--sun);font-size:.6em}
+.band.alt span::after{color:var(--ink)}
+.band span:nth-child(even){-webkit-text-stroke:1.5px var(--cream);color:transparent}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:110px 0}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;text-transform:uppercase;letter-spacing:2px;font-weight:600;color:var(--clay)}
+.kicker::before{content:"";width:26px;height:1.5px;background:currentColor}
+.h2{font-size:clamp(40px,6.4vw,92px);line-height:.92;font-weight:800;letter-spacing:-.045em;margin-top:14px}
+.h2 em{color:var(--clay);letter-spacing:-.01em}
+.sec-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.sec-top p{max-width:380px;color:var(--ink-2);font-size:17px}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(60px);transition:opacity 1s var(--ease),transform 1.1s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.06em}
+.split .w > span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease);transition-delay:calc(var(--i) * 55ms)}
+.split.in .w > span{transform:none}
+
+/* Bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(170px,auto);gap:16px}
+.tile{position:relative;border-radius:28px;padding:28px;overflow:hidden;background:var(--cream);border:1px solid var(--line);transition:transform .6s var(--ease)}
+.tile:hover{transform:translateY(-6px) rotate(-.4deg)}
+.tile h3{font-size:26px;line-height:1.05;font-weight:700;letter-spacing:-.03em}
+.tile p{color:var(--muted);font-size:15px;margin-top:8px;max-width:340px}
+.t-a{grid-column:span 7;grid-row:span 2;background:var(--night);color:var(--cream);display:flex;flex-direction:column;justify-content:space-between}
+.t-a p{color:#b9b2c4}
+.t-a .stars{position:absolute;inset:0;background-image:radial-gradient(1.5px 1.5px at 20% 30%,#fff,transparent),radial-gradient(1px 1px at 70% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 85% 60%,#fff,transparent),radial-gradient(1px 1px at 40% 70%,#fff,transparent),radial-gradient(1px 1px at 60% 45%,#fff,transparent),radial-gradient(1.5px 1.5px at 10% 80%,#fff,transparent);opacity:.6;animation:twinkle 4s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.2}}
+.t-a .moon{position:absolute;right:34px;top:30px;width:70px;height:70px;border-radius:50%;box-shadow:-14px 8px 0 0 var(--sun);transform:rotate(-20deg)}
+.t-a img{position:absolute;right:-6%;bottom:-6%;width:68%;transition:transform 1s var(--ease)}
+.t-a:hover img{transform:translateX(-4%)}
+.t-a .big{font-size:clamp(70px,9vw,140px);font-weight:800;line-height:.8;letter-spacing:-.06em;position:relative}
+.t-a .big em{color:var(--sun);font-size:.55em}
+.t-b{grid-column:span 5;background:var(--clay);color:#fff}
+.t-b p{color:rgba(255,255,255,.8)}
+.t-c{grid-column:span 5;background:var(--dune)}
+.t-d{grid-column:span 4}
+.t-e{grid-column:span 4;background:var(--ink);color:var(--cream)}
+.t-e p{color:#a59d90}
+.t-f{grid-column:span 4;background:var(--sun)}
+.t-f p{color:var(--ink-2)}
+.tile .ic{width:52px;height:52px;border-radius:16px;background:rgba(23,19,14,.07);display:grid;place-items:center;margin-bottom:18px}
+.t-b .ic,.t-e .ic{background:rgba(255,255,255,.14)}
+.tile .num{font-size:64px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.tile .corner{position:absolute;right:22px;top:22px;font-family:var(--serif);font-style:italic;font-size:20px;opacity:.6}
+@media (max-width:980px){.bento{grid-template-columns:repeat(2,1fr)}.t-a,.t-b,.t-c,.t-d,.t-e,.t-f{grid-column:span 2;grid-row:auto}.t-a{min-height:360px}.t-a img{right:-14px;bottom:-10px;width:56%}.t-a .moon{width:46px;height:46px;right:24px;top:24px;box-shadow:-9px 5px 0 0 var(--sun)}.t-a > div:not(.stars):not(.moon){max-width:78%}.t-d,.t-e{grid-column:span 1}}
+@media (max-width:560px){.t-d,.t-e{grid-column:span 2}}
+
+/* Fleet — horizontal pinned */
+.fleet{padding:0;background:var(--ink);color:var(--cream);position:relative}
+.fleet .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.fleet .sec-top{margin-bottom:36px}
+.fleet .sec-top p{color:#a59d90}
+.fleet .h2 em{color:var(--sun)}
+.track{display:flex;gap:22px;padding-left:max(16px,(100vw - 1320px)/2);will-change:transform}
+.vcard{flex:0 0 min(440px,82vw);border-radius:30px;background:#231e18;border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .4s}
+.vcard:hover{background:#2c251d}
+.vcard .top{display:flex;justify-content:space-between;align-items:flex-start}
+.vcard .no{font-family:var(--serif);font-style:italic;font-size:54px;line-height:1;color:var(--sun)}
+.vcard .ty{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;border:1px solid rgba(255,255,255,.2);padding:6px 12px;border-radius:999px;color:#cfc6b8}
+.vcard .pic{position:relative;aspect-ratio:3/2;margin:4px -10px}
+.vcard .pic::before{content:"";position:absolute;left:10%;right:10%;top:18%;bottom:8%;border-radius:50%;background:radial-gradient(closest-side,rgba(243,176,74,.35),transparent);transform:scale(.6);transition:transform .8s var(--ease)}
+.vcard:hover .pic::before{transform:scale(1.1)}
+.vcard .pic img{position:relative;width:100%;height:100%;object-fit:contain;transition:transform .8s var(--ease)}
+.vcard:hover .pic img{transform:scale(1.06) translateX(3%)}
+.vcard h3{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1.05}
+.vcard .specs{display:flex;gap:0;margin:16px 0 20px;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden}
+.vcard .specs div{flex:1;padding:10px 12px;font-size:12px;color:#a59d90;border-right:1px solid rgba(255,255,255,.12)}
+.vcard .specs div:last-child{border:0}
+.vcard .specs b{display:block;font-size:22px;color:var(--cream);font-weight:700}
+.vcard .btn{margin-top:auto;justify-content:space-between}
+.vcard.end{background:var(--clay);justify-content:space-between;flex-basis:min(360px,82vw)}
+.vcard.end h3{font-size:40px}
+.vcard.end p{color:rgba(255,255,255,.85)}
+.fleet-bar{width:min(1320px,100% - 32px);margin:36px auto 0;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
+.fleet-bar i{display:block;height:100%;width:0;background:var(--sun)}
+@media (max-width:900px){
+  .fleet{padding:90px 0}
+  .fleet .pin{position:static;height:auto}
+  .track{overflow-x:auto;scroll-snap-type:x mandatory;padding-right:16px;padding-bottom:8px;scrollbar-width:none}
+  .track::-webkit-scrollbar{display:none}
+  .vcard{scroll-snap-align:start}
+  .fleet-bar{display:none}
+}
+
+/* Routes — editorial rows */
+.rows{border-top:1px solid var(--ink)}
+.row{position:relative;display:grid;grid-template-columns:60px 1.4fr 1fr 140px auto;align-items:center;gap:20px;padding:26px 8px;border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}
+.row::before{content:"";position:absolute;inset:0;background:var(--ink);transform:translateY(101%);transition:transform .55s var(--ease);z-index:-1}
+.row:hover::before{transform:none}
+.row:hover{color:var(--cream)}
+.row .i{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted)}
+.row .path{font-size:clamp(22px,2.6vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.1;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.row .path svg{color:var(--clay);transition:transform .5s var(--ease);flex:none}
+.row:hover .path svg{transform:translateX(8px)}
+.row .d{font-size:14px;color:var(--muted)}
+.row:hover .d,.row:hover .i{color:#b9b0a2}
+.row .tm{font-size:14px;font-weight:600}
+.row .go{width:52px;height:52px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:background .3s,border-color .3s,transform .5s var(--ease)}
+.row:hover .go{background:var(--wa);border-color:var(--wa);color:#fff;transform:rotate(-45deg)}
+.follow{position:fixed;left:0;top:0;width:280px;aspect-ratio:3/2;pointer-events:none;z-index:70;opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(-6deg);transition:opacity .3s,transform .4s var(--ease)}
+.follow.show{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-4deg)}
+.follow img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 20px 20px rgba(0,0,0,.35))}
+@media (max-width:860px){
+  .row{grid-template-columns:1fr auto;gap:6px 14px;padding:22px 4px}
+  .row .i{display:none}
+  .row .path{grid-column:1}
+  .row .d{grid-column:1;grid-row:2}
+  .row .tm{grid-column:1;grid-row:3;color:var(--clay)}
+  .row .go{grid-column:2;grid-row:1 / span 3}
+}
+@media (hover:none){.follow{display:none}}
+
+/* Boarding pass booking */
+.booking{background:var(--dune)}
+.pass{display:grid;grid-template-columns:1fr 340px;background:var(--cream);border-radius:30px;box-shadow:0 40px 80px rgba(23,19,14,.14);position:relative;transform:rotate(-1deg);transition:transform .8s var(--ease)}
+.pass:hover{transform:none}
+.pass .main{padding:38px 40px}
+.pass .stub{position:relative;padding:38px 30px;border-left:2px dashed var(--dune);display:flex;flex-direction:column}
+.pass .stub::before,.pass .stub::after{content:"";position:absolute;left:-19px;width:36px;height:36px;border-radius:50%;background:var(--dune)}
+.pass .stub::before{top:-18px}.pass .stub::after{bottom:-18px}
+.pass-head{display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:26px;flex-wrap:wrap}
+.pass-head .brand{padding:0}
+.pass-head small{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted)}
+.route-big{display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:end;margin-bottom:26px}
+.route-big .ar{padding-bottom:14px;color:var(--clay);display:flex;align-items:center;gap:6px}
+.route-big .ar i{display:block;width:60px;border-top:2px dashed var(--clay)}
+.f{display:flex;flex-direction:column;gap:4px;position:relative}
+.f label{font-size:11px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted);font-weight:600}
+.f input,.f select,.f textarea{font:inherit;font-size:17px;font-weight:600;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid var(--line);padding:8px 0;outline:none;border-radius:0;width:100%;transition:border-color .3s;appearance:none;-webkit-appearance:none}
+.route-big .f input{font-size:clamp(20px,2.4vw,30px);font-weight:800;letter-spacing:-.03em}
+.f input::placeholder,.f textarea::placeholder{color:#b8ad9d;font-weight:500}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--clay)}
+.f select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237a6f61' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;cursor:pointer}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 24px;margin-bottom:22px}
+.grid4 .span2{grid-column:span 2}
+.stub h4{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);font-weight:600}
+.stub .veh{font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:6px 0 4px}
+.stub .vs{font-size:14px;color:var(--muted)}
+.stub .vimg{aspect-ratio:3/2;margin:14px 0;position:relative}
+.stub .vimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;animation:pop .7s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateX(20%) scale(.9)}}
+.barcode{height:46px;margin:auto 0 16px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 7px,transparent 7px 9px,var(--ink) 9px 10px,transparent 10px 13px);opacity:.85;border-radius:2px}
+.stub .btn{width:100%;justify-content:space-between}
+.stub small{display:block;text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
+@media (max-width:900px){
+  .pass{grid-template-columns:1fr;transform:none}
+  .pass .stub{border-left:0;border-top:2px dashed var(--dune)}
+  .pass .stub::before,.pass .stub::after{top:-19px;bottom:auto}
+  .pass .stub::before{left:-18px}.pass .stub::after{left:auto;right:-18px}
+}
+@media (max-width:620px){
+  .pass .main{padding:26px 22px}.pass .stub{padding:30px 22px}
+  .route-big{grid-template-columns:1fr}.route-big .ar{display:none}
+  .grid4{grid-template-columns:1fr 1fr}
+}
+
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.st{padding:34px 28px 10px 0;position:relative}
+.st + .st{padding-left:28px;border-left:1px solid var(--line)}
+.st .big{font-size:clamp(90px,11vw,170px);font-weight:800;line-height:.85;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px var(--ink);transition:color .6s var(--ease)}
+.st:hover .big{color:var(--clay);-webkit-text-stroke-color:var(--clay)}
+.st h4{font-size:24px;font-weight:700;letter-spacing:-.03em;margin:18px 0 6px}
+.st p{color:var(--muted);max-width:300px}
+@media (max-width:800px){.steps{grid-template-columns:1fr}.st,.st + .st{padding:28px 0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+.faq-grid .side{position:sticky;top:110px}
+.faq-grid .side p{color:var(--ink-2);margin:20px 0 26px;max-width:340px}
+.qa{border-bottom:1px solid var(--line)}
+.qa:first-child{border-top:1px solid var(--ink)}
+.qa button{width:100%;display:grid;grid-template-columns:48px 1fr 36px;gap:12px;align-items:center;background:none;border:0;padding:24px 0;text-align:left;font:600 20px "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;color:var(--ink);cursor:pointer}
+.qa .k{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--clay);font-size:20px}
+.qa .x{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);position:relative;transition:transform .5s var(--ease),background .3s}
+.qa .x::before,.qa .x::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.qa .x::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa.open .x{transform:rotate(45deg);background:var(--clay);color:#fff;border-color:var(--clay)}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a > div{overflow:hidden}
+.qa .a p{padding:0 48px 24px 60px;color:var(--ink-2)}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr;gap:30px}.faq-grid .side{position:static}.qa button{grid-template-columns:36px 1fr 36px;font-size:17px}.qa .a p{padding:0 0 22px 48px}}
+
+/* Footer */
+footer{background:var(--ink);color:var(--cream);padding:90px 0 0;overflow:hidden;position:relative}
+.foot-cta{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-bottom:60px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-cta h2{font-size:clamp(42px,6.5vw,100px);line-height:.9;font-weight:800;letter-spacing:-.05em}
+.foot-cta h2 em{color:var(--sun)}
+.foot-links{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:46px 0;font-size:15px;color:#a59d90}
+.foot-links h5{color:var(--cream);font-size:13px;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;font-weight:600}
+.foot-links ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-links a:hover{color:var(--sun)}
+.mega{font-size:clamp(44px,14vw,210px);font-weight:800;letter-spacing:-.065em;line-height:.78;white-space:nowrap;text-align:center;color:transparent;-webkit-text-stroke:1.5px rgba(251,247,240,.25);margin-bottom:-.12em;user-select:none}
+.mega em{-webkit-text-stroke:0;color:var(--clay)}
+.copy{display:flex;justify-content:space-between;gap:20px;font-size:13px;color:#7d7468;padding:20px 0;border-top:1px solid rgba(255,255,255,.12);position:relative;z-index:1;background:var(--ink);flex-wrap:wrap}
+@media (max-width:860px){.foot-links{grid-template-columns:1fr 1fr}}
+
+.wa-fab{position:fixed;right:18px;bottom:18px;z-index:65;display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;border-radius:999px;padding:8px 8px 8px 8px;box-shadow:0 14px 30px rgba(37,211,102,.4);transition:padding .4s var(--ease)}
+.wa-fab .ic{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.wa-fab .ic svg{width:26px;height:26px}
+.wa-fab .lbl{max-width:0;overflow:hidden;white-space:nowrap;font-weight:600;transition:max-width .5s var(--ease)}
+.wa-fab:hover{padding-right:20px}
+.wa-fab:hover .lbl{max-width:160px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}.split .w > span,.title h1 .ln span{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.43 9.44-9.43a9.37 9.37 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43m8.03-17.47A11.28 11.28 0 0 0 12.05.7C5.79.7.7 5.79.7 12.04c0 2 .52 3.95 1.52 5.67L.6 23.6l6.02-1.58a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.34-11.34 0-3.03-1.18-5.88-3.32-8.02"/></symbol>
+  <symbol id="i-ar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-ne" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M8 7h9v9"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M14.5 2.5A9.5 9.5 0 1 0 21.5 17 7.5 7.5 0 0 1 14.5 2.5z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand"><span class="mk"><svg width="16" height="16"><use href="#i-moon"/></svg></span>BookUmrah<i>Taxi</i></a>
+  <nav><a href="#why">Why us</a><a href="#fleet">Fleet</a><a href="#routes">Routes</a><a href="#booking">Book</a><a href="#faq">FAQ</a></nav>
+  <a href="#" class="cta" data-wa="Assalam o Alaikum BookUmrahTaxi, I would like to book a taxi."><svg class="wa-ico" style="width:18px;height:18px"><use href="#i-wa"/></svg>Book Now</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap" style="display:flex;flex-direction:column;flex:1">
+    <div class="meta">
+      <span class="live"><b>Online now</b>&nbsp;— 24/7 rides</span>
+      <span>Makkah · Madinah · Jeddah · Taif</span>
+      <span>WhatsApp <b>+966 50 765 1503</b></span>
+    </div>
+
+    <div class="title">
+      <div class="sun"></div>
+      <h1>
+        <span class="ln"><span>Umrah</span></span>
+        <span class="ln"><span><em>rides,</em></span></span>
+        <span class="ln r"><span>Made easy</span></span>
+      </h1>
+      <div class="hero-car" id="heroCar"></div>
+    </div>
+
+    <div class="hero-foot">
+      <div>
+        <p>From Jeddah Airport to the doors of your hotel near Haram — clean cars, kind drivers, fixed prices. Book in one message.</p>
+        <a href="#" class="btn wa" id="heroBook">Book Now on WhatsApp <span class="knob"><svg class="wa-ico"><use href="#i-wa"/></svg></span></a>
+      </div>
+      <ul class="index" id="index"></ul>
+      <a href="#" class="badge" data-wa="Assalam o Alaikum BookUmrahTaxi, I would like to book a taxi." aria-label="Book on WhatsApp">
+        <svg class="txt" viewBox="0 0 150 150"><defs><path id="circ" d="M75,75 m-60,0 a60,60 0 1,1 120,0 a60,60 0 1,1 -120,0"/></defs><text font-size="13.2" font-weight="700" letter-spacing="3.2" fill="#17130e" font-family="Bricolage Grotesque"><textPath href="#circ" textLength="372" lengthAdjust="spacing">BOOK NOW ✦ WHATSAPP ✦ 24/7 ✦ </textPath></text></svg>
+        <span class="core"><svg><use href="#i-wa"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="bands"><div class="band"><div class="tr" id="band1"></div></div>
+<div class="band alt" aria-hidden="true"><div class="tr" id="band2"></div></div></div>
+
+<!-- WHY / BENTO -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <span class="kicker">Why BookUmrahTaxi</span>
+        <h2 class="h2 split">Focus on worship. <em>We’ll handle</em> the road.</h2>
+      </div>
+      <p class="rv">Every detail of your transfer is taken care of — so your mind stays on the journey that matters.</p>
+    </div>
+    <div class="bento">
+      <div class="tile t-a rv">
+        <div class="stars"></div><div class="moon"></div>
+        <div style="position:relative">
+          <h3>Day or night,<br>we’re on the way.</h3>
+          <p>Late-night flight? Fajr at Haram? Your driver is ready whenever you are.</p>
+        </div>
+        <div class="big"><span data-count="24">0</span><em>/7</em></div>
+        <img src="images/gmc-yukon-xl.webp" alt="" loading="lazy">
+      </div>
+      <div class="tile t-b rv" style="--d:.08s">
+        <span class="corner">01</span>
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Safe, licensed &amp; respectful drivers</h3>
+        <p>Experienced drivers who know every road between the holy cities.</p>
+      </div>
+      <div class="tile t-c rv" style="--d:.16s">
+        <span class="corner">02</span>
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Fixed price, agreed first</h3>
+        <p>You know the fare before the ride. No meters, no surprises.</p>
+      </div>
+      <div class="tile t-d rv">
+        <div class="num"><span data-count="5">0</span></div>
+        <h3 style="margin-top:8px">Vehicle types</h3>
+        <p>Sedan, SUV, premium van, family van and coaster.</p>
+      </div>
+      <div class="tile t-e rv" style="--d:.08s">
+        <div class="num">1–<span data-count="15">0</span></div>
+        <h3 style="margin-top:8px">Passengers</h3>
+        <p>Solo pilgrims, families and full groups.</p>
+      </div>
+      <div class="tile t-f rv" style="--d:.16s">
+        <div class="ic"><svg width="26" height="26"><use href="#i-wa"/></svg></div>
+        <h3>Book in one message</h3>
+        <p>Tap a button — WhatsApp opens with your booking already written.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section class="fleet" id="fleet">
+  <div class="pin">
+    <div class="wrap">
+      <div class="sec-top">
+        <div>
+          <span class="kicker" style="color:var(--sun)">The fleet</span>
+          <h2 class="h2 split">Pick your <em>ride.</em></h2>
+        </div>
+        <p class="rv">Five vehicles, one standard: clean, air-conditioned and ready on time. Scroll to explore →</p>
+      </div>
+    </div>
+    <div class="track" id="track"></div>
+    <div class="fleet-bar"><i id="fleetBar"></i></div>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section id="routes">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <span class="kicker">Popular routes</span>
+        <h2 class="h2 split">Where we <em>take you.</em></h2>
+      </div>
+      <p class="rv">Door-to-door between airports, hotels and the holy sites. Tap any route to book it.</p>
+    </div>
+    <div class="rows" id="rows"></div>
+  </div>
+</section>
+<div class="follow" id="follow"><img id="followImg" alt=""></div>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <span class="kicker">Your ticket</span>
+        <h2 class="h2 split">Book in <em>under a minute.</em></h2>
+      </div>
+      <p class="rv">Fill your pass and send — it opens in WhatsApp ready to go. We reply with your confirmed price.</p>
+    </div>
+    <form class="pass rv" id="bookForm" novalidate>
+      <div class="main">
+        <div class="pass-head">
+          <span class="brand"><span class="mk"><svg width="16" height="16"><use href="#i-moon"/></svg></span>BookUmrah<i>Taxi</i></span>
+          <small>Ride pass · No payment now</small>
+        </div>
+        <div class="route-big">
+          <div class="f"><label for="fFrom">From</label><input id="fFrom" placeholder="Jeddah Airport" list="places"></div>
+          <div class="ar"><i></i><svg width="18" height="18"><use href="#i-ar"/></svg></div>
+          <div class="f"><label for="fTo">To</label><input id="fTo" placeholder="Makkah Hotel" list="places"></div>
+        </div>
+        <datalist id="places">
+          <option>Jeddah Airport (KAIA)</option><option>Makkah Hotel</option><option>Madinah Hotel</option>
+          <option>Madinah Airport</option><option>Jeddah City</option><option>Taif</option><option>Haramain Train Station</option>
+        </datalist>
+        <div class="grid4">
+          <div class="f span2"><label for="fName">Passenger name</label><input id="fName" placeholder="Full name" autocomplete="name"></div>
+          <div class="f"><label for="fDate">Date</label><input id="fDate" type="date"></div>
+          <div class="f"><label for="fTime">Time</label><input id="fTime" type="time"></div>
+          <div class="f"><label for="fPax">Passengers</label><input id="fPax" type="number" min="1" max="60" value="2"></div>
+          <div class="f span2"><label for="fCar">Vehicle</label><select id="fCar"></select></div>
+          <div class="f"><label for="fNote">Flight no.</label><input id="fNote" placeholder="Optional"></div>
+        </div>
+      </div>
+      <div class="stub">
+        <h4>Selected vehicle</h4>
+        <div class="veh" id="stubName">Any vehicle</div>
+        <div class="vs" id="stubSpecs">We’ll suggest the best fit</div>
+        <div class="vimg" id="stubImg"></div>
+        <div class="barcode"></div>
+        <button type="submit" class="btn wa">Send on WhatsApp <span class="knob"><svg class="wa-ico"><use href="#i-wa"/></svg></span></button>
+        <small>Price confirmed on WhatsApp</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="wrap">
+    <div class="sec-top">
+      <div>
+        <span class="kicker">How it works</span>
+        <h2 class="h2 split">Three steps. <em>That’s all.</em></h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="st rv"><div class="big">01</div><h4>Tap “Book Now”</h4><p>WhatsApp opens with a ready-made message for your vehicle or route.</p></div>
+      <div class="st rv" style="--d:.1s"><div class="big">02</div><h4>Share your trip</h4><p>Pickup, drop-off, date and how many passengers.</p></div>
+      <div class="st rv" style="--d:.2s"><div class="big">03</div><h4>Ride in peace</h4><p>We confirm price and driver. Your driver arrives on time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:20px">
+  <div class="wrap faq-grid">
+    <div class="side">
+      <span class="kicker">FAQ</span>
+      <h2 class="h2 split">Good <em>questions.</em></h2>
+      <p class="rv">Can’t find your answer? Message us any time — we reply fast.</p>
+      <a href="#" class="btn rv" data-wa="Assalam o Alaikum BookUmrahTaxi, I have a question.">Ask on WhatsApp <span class="knob"><svg width="18" height="18"><use href="#i-ne"/></svg></span></a>
+    </div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-cta">
+      <h2 class="split">Ready for your<br><em>sacred journey?</em></h2>
+      <a href="#" class="btn light" data-wa="Assalam o Alaikum BookUmrahTaxi, I want to book a ride for my Umrah trip.">Book Now on WhatsApp <span class="knob"><svg class="wa-ico" style="color:#fff"><use href="#i-wa"/></svg></span></a>
+    </div>
+    <div class="foot-links">
+      <div><h5>Contact</h5><ul><li><a href="#" data-wa="Assalam o Alaikum BookUmrahTaxi, I have a question.">WhatsApp +966 50 765 1503</a></li><li><a href="tel:+966507651503">Call +966 50 765 1503</a></li><li>Available 24/7</li></ul></div>
+      <div><h5>Explore</h5><ul><li><a href="#why">Why us</a></li><li><a href="#fleet">Fleet</a></li><li><a href="#routes">Routes</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h5>Services</h5><ul><li>Airport transfers</li><li>Makkah ⇄ Madinah</li><li>Ziyarat tours</li><li>Group transport</li></ul></div>
+      <div><h5>Cities</h5><ul><li>Makkah</li><li>Madinah</li><li>Jeddah</li><li>Taif</li></ul></div>
+    </div>
+  </div>
+  <div class="mega" aria-hidden="true">BookUmrah<em>Taxi</em></div>
+  <div class="copy"><div class="wrap" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap"><span>© <span id="yr"></span> BookUmrahTaxi. All rights reserved.</span><span>Makkah · Madinah · Jeddah · Taif</span></div></div>
+</footer>
+
+<a href="#" class="wa-fab" aria-label="Chat on WhatsApp" data-wa="Assalam o Alaikum BookUmrahTaxi, I would like to book a taxi."><span class="ic"><svg><use href="#i-wa"/></svg></span><span class="lbl">Chat with us</span></a>
+
+<script>
+const WA_NUMBER = '966507651503';
+const waLink = msg => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+const carMsg = c => `Assalam o Alaikum BookUmrahTaxi,\nI want to book the ${c.name} (${c.pax} passengers).\n\nPickup: \nDrop-off: \nDate & Time: \nPassengers: `;
+const routeMsg = r => `Assalam o Alaikum BookUmrahTaxi,\nI want to book a taxi from ${r.from} to ${r.to}.\n\nDate & Time: \nPassengers: \nVehicle: `;
+const WA = '<svg class="wa-ico"><use href="#i-wa"/></svg>';
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const CARS = [
+  {name:'GMC Yukon XL',   type:'Luxury SUV',    img:'images/gmc-yukon-xl.webp',   pax:6,  bags:8},
+  {name:'Toyota Camry',   type:'Sedan',         img:'images/camry.webp',          pax:3,  bags:3},
+  {name:'Hyundai Staria', type:'Premium Van',   img:'images/hyundai-staria.webp', pax:7,  bags:5},
+  {name:'Toyota Hiace',   type:'Family Van',    img:'images/toyota-hiace.webp',   pax:10, bags:14},
+  {name:'Toyota Coaster', type:'Group Coaster', img:'images/toyota-coaster.webp', pax:15, bags:22},
+];
+const ROUTES = [
+  {from:'Jeddah Airport', to:'Makkah',         time:'~1h 15m',   car:0, desc:'Meet & greet at arrivals, straight to your hotel near Haram.'},
+  {from:'Makkah',         to:'Madinah',        time:'~4h 30m',   car:2, desc:'Comfortable intercity ride with rest stops on request.'},
+  {from:'Madinah Airport',to:'Madinah Hotel',  time:'~25m',      car:1, desc:'Quick transfer from Prince Mohammad bin Abdulaziz Airport.'},
+  {from:'Makkah',         to:'Jeddah Airport', time:'~1h 15m',   car:3, desc:'On-time drop for your departure flight.'},
+  {from:'Makkah',         to:'Ziyarat Tour',   time:'3–4 hours', car:4, desc:'Jabal al-Nour, Jabal Thawr, Arafat, Mina, Muzdalifah.'},
+  {from:'Madinah',        to:'Ziyarat Tour',   time:'3–4 hours', car:2, desc:'Masjid Quba, Uhud, Masjid Qiblatain and more.'},
+  {from:'Jeddah',         to:'Madinah',        time:'~4h',       car:0, desc:'Direct transfer from Jeddah city or airport to Madinah.'},
+  {from:'Makkah',         to:'Taif',           time:'~1h 30m',   car:1, desc:'Day trip or transfer to the cool hills of Taif.'},
+];
+const FAQS = [
+  ['How do I book a taxi?','Tap any “Book Now” button on this page. WhatsApp opens with a pre-filled message to +966 50 765 1503 — just add your trip details and send.'],
+  ['Do you pick up from Jeddah Airport?','Yes. Share your flight number and arrival time and your driver will meet you at arrivals, including late-night flights.'],
+  ['Which vehicle should I choose?','Toyota Camry for up to 3 passengers, GMC Yukon XL for up to 6, Hyundai Staria for families up to 7, Toyota Hiace for groups up to 10, and Toyota Coaster for larger groups up to 15.'],
+  ['Do you offer Ziyarat tours?','Yes — Ziyarat of the historic sites in Makkah and Madinah, with flexible timing for your group.'],
+  ['How do I pay?','The price is agreed on WhatsApp before your trip. Payment details are confirmed with your booking.'],
+];
+const pad = n => String(n + 1).padStart(2, '0');
+
+// Split headings into words for reveal
+document.querySelectorAll('.split').forEach(el => {
+  let i = 0;
+  const walk = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(t => {
+        if (!t) return;
+        if (/^\s+$/.test(t)) { frag.append(t); return; }
+        const w = document.createElement('span'); w.className = 'w';
+        const s = document.createElement('span'); s.textContent = t; s.style.setProperty('--i', i++);
+        w.append(s); frag.append(w);
+      });
+      n.replaceWith(frag);
+    } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+  });
+  walk(el);
+});
+
+// Hero car + index
+const heroCar = document.getElementById('heroCar'), index = document.getElementById('index');
+CARS.forEach((c, i) => {
+  const img = new Image(); img.src = c.img; img.alt = c.name; heroCar.append(img);
+  const li = document.createElement('li');
+  li.innerHTML = `<button><span class="n">${pad(i)}</span><span class="nm">${c.name}</span><span class="sp">${c.pax} seats · ${c.bags} bags</span></button>`;
+  li.firstChild.onclick = () => { if (i !== cur) { show(i); restart(); } };
+  index.append(li);
+});
+let cur = -1, timer;
+function show(i){
+  const imgs = heroCar.querySelectorAll('img');
+  if (cur >= 0) { const p = imgs[cur]; p.classList.remove('on'); p.classList.add('off'); setTimeout(() => p.classList.remove('off'), 800); }
+  imgs[i].classList.remove('off'); imgs[i].classList.add('on');
+  index.querySelectorAll('button').forEach((b, j) => b.classList.toggle('on', j === i));
+  document.getElementById('heroBook').href = waLink(carMsg(CARS[i]));
+  cur = i;
+}
+function restart(){ clearInterval(timer); if (!reduced) timer = setInterval(() => show((cur + 1) % CARS.length), 4800); }
+setTimeout(() => { show(0); restart(); }, 450);
+document.getElementById('heroBook').href = waLink(carMsg(CARS[0]));
+
+// Marquee bands
+const b1 = ['Makkah','Madinah','Jeddah','Taif','Ziyarat','Airport'].map(t => `<span>${t}</span>`).join('');
+const b2 = ['Book on WhatsApp','24/7 Service','Fixed prices','Clean A/C cars'].map(t => `<span>${t}</span>`).join('');
+document.getElementById('band1').innerHTML = b1 + b1 + b1 + b1;
+document.getElementById('band2').innerHTML = b2 + b2 + b2 + b2;
+
+// Fleet track
+const track = document.getElementById('track');
+track.innerHTML = CARS.map((c, i) => `
+  <article class="vcard">
+    <div class="top"><span class="no">${pad(i)}</span><span class="ty">${c.type}</span></div>
+    <div class="pic"><img src="${c.img}" alt="${c.name}" loading="lazy"></div>
+    <h3>${c.name}</h3>
+    <div class="specs"><div><b>${c.pax}</b>Seats</div><div><b>${c.bags}</b>Bags</div><div><b>A/C</b>Cooling</div></div>
+    <a class="btn light" target="_blank" rel="noopener" href="${waLink(carMsg(c))}">Book Now <span class="knob">${WA}</span></a>
+  </article>`).join('') + `
+  <article class="vcard end">
+    <span class="no" style="color:#fff">✦</span>
+    <div><h3>Not sure which one?</h3><p style="margin:12px 0 22px">Tell us your group size and luggage — we’ll suggest the perfect vehicle.</p>
+    <a class="btn" target="_blank" rel="noopener" href="${waLink('Assalam o Alaikum BookUmrahTaxi, please suggest a vehicle for my group.\n\nPassengers: \nBags: \nRoute: ')}">Ask us <span class="knob">${WA}</span></a></div>
+  </article>`;
+
+const fleet = document.getElementById('fleet'), bar = document.getElementById('fleetBar');
+const wide = matchMedia('(min-width: 901px)');
+function sizeFleet(){
+  if (!wide.matches) { fleet.style.height = ''; track.style.transform = ''; return; }
+  const dist = Math.max(0, track.scrollWidth - innerWidth + 32);
+  fleet.style.height = (innerHeight + dist) + 'px';
+  fleet.dataset.dist = dist;
+  moveFleet();
+}
+function moveFleet(){
+  if (!wide.matches) return;
+  const dist = +fleet.dataset.dist || 0, top = fleet.getBoundingClientRect().top;
+  const p = Math.min(1, Math.max(0, -top / (fleet.offsetHeight - innerHeight || 1)));
+  track.style.transform = `translateX(${-p * dist}px)`;
+  bar.style.width = (p * 100) + '%';
+}
+addEventListener('resize', sizeFleet); addEventListener('load', sizeFleet); sizeFleet();
+
+// Routes rows + cursor-follow preview
+const rows = document.getElementById('rows');
+rows.innerHTML = ROUTES.map((r, i) => `
+  <a class="row rv" data-car="${r.car}" target="_blank" rel="noopener" href="${waLink(routeMsg(r))}" style="--d:${(i % 4) * .05}s">
+    <span class="i">${pad(i)}</span>
+    <span class="path">${r.from} <svg width="26" height="26"><use href="#i-ar"/></svg> ${r.to}</span>
+    <span class="d">${r.desc}</span>
+    <span class="tm">⏱ ${r.time}</span>
+    <span class="go"><svg width="20" height="20"><use href="#i-ne"/></svg></span>
+  </a>`).join('');
+const follow = document.getElementById('follow'), fImg = document.getElementById('followImg');
+let fx = 0, fy = 0, tx = 0, ty = 0, raf;
+const loop = () => { fx += (tx - fx) * .16; fy += (ty - fy) * .16; follow.style.left = fx + 'px'; follow.style.top = fy + 'px'; raf = requestAnimationFrame(loop); };
+rows.querySelectorAll('.row').forEach(r => {
+  r.addEventListener('mouseenter', e => { fImg.src = CARS[r.dataset.car].img; tx = fx = e.clientX; ty = fy = e.clientY; follow.classList.add('show'); if (!raf) loop(); });
+  r.addEventListener('mouseleave', () => { follow.classList.remove('show'); cancelAnimationFrame(raf); raf = null; });
+  r.addEventListener('mousemove', e => { tx = e.clientX + 160; ty = e.clientY; });
+});
+
+// FAQ
+const faq = document.getElementById('faqList');
+faq.innerHTML = FAQS.map(([q, a], i) => `
+  <div class="qa rv${i === 0 ? ' open' : ''}" style="--d:${i * .06}s">
+    <button aria-expanded="${i === 0}"><span class="k">${pad(i)}</span>${q}<span class="x"></span></button>
+    <div class="a"><div><p>${a}</p></div></div>
+  </div>`).join('');
+faq.querySelectorAll('.qa button').forEach(b => b.onclick = () => {
+  const qa = b.parentElement, open = !qa.classList.contains('open');
+  faq.querySelectorAll('.qa').forEach(x => { x.classList.remove('open'); x.querySelector('button').setAttribute('aria-expanded', false); });
+  if (open) { qa.classList.add('open'); b.setAttribute('aria-expanded', true); }
+});
+
+// Booking pass
+const sel = document.getElementById('fCar');
+sel.innerHTML = '<option value="">Any — suggest for me</option>' + CARS.map((c, i) => `<option value="${i}">${c.name} (${c.pax} seats)</option>`).join('');
+const stubImg = document.getElementById('stubImg');
+function updateStub(){
+  const c = CARS[sel.value];
+  document.getElementById('stubName').textContent = c ? c.name : 'Any vehicle';
+  document.getElementById('stubSpecs').textContent = c ? `${c.type} · ${c.pax} seats · ${c.bags} bags` : 'We’ll suggest the best fit';
+  stubImg.innerHTML = `<img src="${(c || CARS[2]).img}" alt="">`;
+}
+sel.onchange = updateStub; updateStub();
+document.getElementById('fDate').min = new Date().toISOString().slice(0, 10);
+document.getElementById('bookForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim(), c = CARS[sel.value];
+  const lines = [
+    'Assalam o Alaikum BookUmrahTaxi,', 'I would like to book a taxi:', '',
+    `Name: ${v('fName') || '-'}`, `Pickup: ${v('fFrom') || '-'}`, `Drop-off: ${v('fTo') || '-'}`,
+    `Date: ${v('fDate') || '-'}`, `Time: ${v('fTime') || '-'}`, `Passengers: ${v('fPax') || '-'}`,
+    `Vehicle: ${c ? `${c.name} (${c.pax} seats)` : 'Please suggest'}`,
+  ];
+  if (v('fNote')) lines.push(`Flight no.: ${v('fNote')}`);
+  window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+});
+
+// WhatsApp links
+document.querySelectorAll('[data-wa]').forEach(a => a.href = waLink(a.dataset.wa));
+document.querySelectorAll('[data-wa], #heroBook').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
+
+// Counters
+function countUp(el){
+  const end = +el.dataset.count, t0 = performance.now();
+  const tick = t => { const p = Math.min((t - t0) / 1500, 1); el.textContent = Math.round(end * (1 - Math.pow(1 - p, 4))); if (p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+
+// Reveal observer
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(countUp);
+  io.unobserve(e.target);
+}), {threshold: .12, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.rv, .split, .tile').forEach(el => io.observe(el));
+
+// Nav hide on scroll down
+const nav = document.getElementById('nav');
+let lastY = scrollY;
+addEventListener('scroll', () => {
+  const y = scrollY;
+  nav.classList.toggle('hide', y > lastY && y > 300);
+  lastY = y;
+  moveFleet();
+}, {passive: true});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
