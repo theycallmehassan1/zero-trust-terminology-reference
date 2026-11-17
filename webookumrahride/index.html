@@ -180,14 +180,26 @@ section{padding:96px 0}
 
 /* Features */
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.feat.feat-nusuk{grid-column:span 2;grid-row:span 2;position:relative;overflow:hidden;background:linear-gradient(145deg,var(--brand-dark),var(--btn-green));border-color:transparent;color:#fff;padding:34px 32px;display:flex;flex-direction:column;justify-content:center}
+.feat.feat-nusuk::before{content:"";position:absolute;right:-60px;bottom:-60px;width:240px;height:240px;border-radius:50%;border:2px dashed rgba(255,203,128,.35);animation:spin 30s linear infinite}
+.feat.feat-nusuk::after{content:"";position:absolute;right:-20px;bottom:-20px;width:160px;height:160px;border-radius:50%;background:rgba(255,203,128,.10)}
+.feat.feat-nusuk > *{position:relative;z-index:1}
+.feat.feat-nusuk .ic{width:64px;height:64px;border-radius:18px;background:var(--gold);color:#fff}
+.feat.feat-nusuk:hover .ic{background:var(--gold-light);color:var(--brand-dark)}
+.feat.feat-nusuk h4{font-size:26px;margin-bottom:8px;color:#fff}
+.feat.feat-nusuk p{font-size:15px;color:var(--topbar);max-width:420px}
+.feat.feat-nusuk ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px}
+.feat.feat-nusuk li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--gold-light)}
+.feat.feat-nusuk li::before{content:"✓";width:20px;height:20px;border-radius:50%;background:rgba(255,203,128,.18);display:grid;place-items:center;font-size:11px}
+.badge-ok{position:absolute!important;top:20px;right:20px;background:var(--gold-light);color:var(--brand-dark);font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:6px 12px;border-radius:999px}
 .feat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
 .feat:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg);border-color:transparent}
 .feat .ic{width:54px;height:54px;border-radius:16px;background:var(--brand-dark);color:#fff;display:grid;place-items:center;margin-bottom:18px;transition:transform .5s var(--ease),background .3s,color .3s}
 .feat:hover .ic{transform:rotate(-8deg) scale(1.1);background:var(--gold);color:#fff}
 .feat h4{font-size:17px;margin-bottom:6px}
 .feat p{font-size:14px;color:var(--text)}
-@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.feat-grid{grid-template-columns:1fr}}
+@media (max-width:900px){.feat-grid{grid-template-columns:1fr 1fr}.feat.feat-nusuk{grid-row:auto}}
+@media (max-width:520px){.feat-grid{grid-template-columns:1fr}.feat.feat-nusuk{grid-column:auto;padding:28px 22px}.feat.feat-nusuk h4{font-size:22px}.badge-ok{top:16px;right:16px}}
 
 /* Fleet */
 .fleet-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
@@ -380,25 +392,8 @@ footer .logo{color:var(--ink);margin-bottom:12px}
 
 <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
 
-<!-- FEATURES -->
-<section>
-  <div class="container">
-    <div class="head reveal">
-      <span class="tag">Why Choose Us</span>
-      <h2>Travel With <em>Peace of Mind</em></h2>
-      <p>Focus on your worship — we take care of the road.</p>
-    </div>
-    <div class="feat-grid">
-      <div class="feat reveal" style="--d:0s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>24/7 Availability</h4><p>Day or night, including late-night airport arrivals.</p></div>
-      <div class="feat reveal" style="--d:.1s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Safe &amp; Licensed</h4><p>Experienced, respectful drivers who know every route.</p></div>
-      <div class="feat reveal" style="--d:.2s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Fixed Fair Prices</h4><p>Price agreed before your ride — no surprises.</p></div>
-      <div class="feat reveal" style="--d:.3s"><div class="ic"><svg width="26" height="26"><use href="#i-wa"/></svg></div><h4>Instant Booking</h4><p>Book and confirm in minutes on WhatsApp.</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- FLEET -->
-<section class="alt" id="fleet">
+<section id="fleet">
   <div class="container">
     <div class="head reveal">
       <span class="tag">Our Fleet</span>
@@ -406,6 +401,24 @@ footer .logo{color:var(--ink);margin-bottom:12px}
       <p>From a comfortable sedan to a 15-seat coaster — all clean, air-conditioned and ready.</p>
     </div>
     <div class="fleet-grid" id="fleetGrid"></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="alt" id="why">
+  <div class="container">
+    <div class="head reveal">
+      <span class="tag">Why Choose Us</span>
+      <h2>Travel With <em>Peace of Mind</em></h2>
+      <p>Focus on your worship — we take care of the road.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat feat-nusuk reveal" style="--d:0s"><span class="badge-ok">✓ Approved</span><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h4>Nusuk Approved</h4><p>Officially approved Umrah transport on Nusuk — travel with a licensed, trusted provider for your pilgrimage.</p><ul><li>Licensed for pilgrim transport</li><li>Airport, Haram &amp; Ziyarat rides</li></ul></div>
+      <div class="feat reveal" style="--d:.1s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>24/7 Availability</h4><p>Day or night, including late-night airport arrivals.</p></div>
+      <div class="feat reveal" style="--d:.15s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Safe &amp; Licensed</h4><p>Experienced, respectful drivers who know every route.</p></div>
+      <div class="feat reveal" style="--d:.2s"><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Fixed Fair Prices</h4><p>Price agreed before your ride — no surprises.</p></div>
+      <div class="feat reveal" style="--d:.3s"><div class="ic"><svg width="26" height="26"><use href="#i-wa"/></svg></div><h4>Instant Booking</h4><p>Book and confirm in minutes on WhatsApp.</p></div>
+    </div>
   </div>
 </section>
 
@@ -551,6 +564,7 @@ const FAQS = [
   ['Do you pick up from Jeddah Airport?','Yes. Share your flight number and arrival time and your driver will meet you at arrivals, including late-night flights.'],
   ['Which vehicle should I choose?','Toyota Camry for up to 3 passengers, GMC Yukon XL for up to 6, Hyundai Staria for families up to 7, Toyota Hiace for groups up to 10, and Toyota Coaster for larger groups up to 15.'],
   ['Do you offer Ziyarat tours?','Yes — Ziyarat of the historic sites in Makkah and Madinah, with flexible timing for your group.'],
+  ['Are you Nusuk approved?','Yes — WeBookUmrahRide is a Nusuk approved Umrah transport provider, so you travel with a licensed and trusted service.'],
   ['How do I pay?','The price is agreed on WhatsApp before your trip. Payment details are confirmed with your booking.'],
 ];
 
