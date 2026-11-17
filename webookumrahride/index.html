@@ -34,8 +34,8 @@
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;overflow-x:clip}
+body{font-family:var(--font-body);color:var(--ink);background:var(--bg);line-height:1.6;overflow-x:hidden;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 h1,h2,h3,h4,h5,.logo{font-family:var(--font-head)}
@@ -77,6 +77,13 @@ header .btn{padding:12px 20px;font-size:14px;border-radius:12px}
   header .btn span{display:none}
   header .btn{padding:11px}
 }
+@media (max-width:400px){
+  header .container{gap:8px}
+  .logo{font-size:18px;gap:8px}
+  .logo-mark{width:34px;height:34px;border-radius:10px}
+  .logo-mark svg{width:19px;height:19px}
+}
+@media (max-width:340px){.logo{font-size:16px}.hero h1{letter-spacing:-1px}}
 
 /* Hero */
 .hero{position:relative;padding:130px 0 70px;overflow:hidden;background:
@@ -169,6 +176,7 @@ section{padding:96px 0}
 .reveal.left{transform:translateX(-50px)}
 .reveal.right{transform:translateX(50px)}
 .reveal.in{opacity:1;transform:none}
+@media (max-width:900px){.reveal.left,.reveal.right{transform:translateY(40px)}.reveal.left.in,.reveal.right.in{transform:none}}
 
 /* Features */
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
